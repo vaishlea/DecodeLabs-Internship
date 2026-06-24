@@ -1,116 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your TriDosha</title>
+    <title>TriDosha Results</title>
+
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
-    <header class="page-header">
-        <h1>Your TriDosha Profile</h1>
-        <p>Based on your assessment responses</p>
-    </header>
+    <!-- RESULTS HEADER -->
+
+    <section class="results-header">
+
+        <div class="container">
+
+            <span class="result-badge">
+                Assessment Complete
+            </span>
+
+            <h1>Your Ayurvedic Profile</h1>
+
+            <p>
+                Based on your responses, here is your personalized TriDosha
+                constitution.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- RESULTS -->
 
     <main class="container">
 
-        <section class="result-card">
+        <!-- PRIMARY DOSHA -->
 
-            <h2>Primary Dosha</h2>
-            <p id="primary-dosha" class="primary-result"></p>
+        <section class="primary-result">
 
-            <h2>Secondary Dosha</h2>
-            <p id="secondary-dosha" class="secondary-result"></p>
+            <div class="result-card primary-card">
 
-            <h2>Tertiary Dosha</h2>
-            <p id="tertiary-dosha" class="tertiary-result"></p>
+                <h2>Your Primary Dosha</h2>
 
-        </section>
+                <div id="primary-dosha" class="primary-dosha">
+                    Loading...
+                </div>
 
-        <section class="result-card">
-
-            <h2>Score Breakdown</h2>
-
-            <div class="score-row">
-                <span>🌊 Vata</span>
-                <span id="vata-score"></span>
-            </div>
-
-            <div class="score-row">
-                <span>🔥 Pitta</span>
-                <span id="pitta-score"></span>
-            </div>
-
-            <div class="score-row">
-                <span>🌿 Kapha</span>
-                <span id="kapha-score"></span>
             </div>
 
         </section>
 
-        <section class="result-card">
+        <!-- DOSHA RANKING -->
 
-            <h2>Dosha Analysis</h2>
+        <section class="ranking-grid">
 
-            <p id="dosha-description">
-                Loading your profile...
-            </p>
+            <div class="result-card">
+
+                <h3>Secondary Dosha</h3>
+
+                <p id="secondary-dosha">
+                    Loading...
+                </p>
+
+            </div>
+
+            <div class="result-card">
+
+                <h3>Tertiary Dosha</h3>
+
+                <p id="tertiary-dosha">
+                    Loading...
+                </p>
+
+            </div>
 
         </section>
 
-        <div class="center">
+        <!-- SCORE BREAKDOWN -->
+
+        <section class="result-card">
+
+            <h2>Dosha Distribution</h2>
+
+            <div class="score-container">
+
+                <div class="score-item">
+                    <div class="score-label">
+                        <span>🌬️ Vata</span>
+                        <span id="vata-score">0%</span>
+                    </div>
+
+                    <div class="score-bar">
+                        <div id="vata-fill" class="vata-fill"></div>
+                    </div>
+                </div>
+
+                <div class="score-item">
+                    <div class="score-label">
+                        <span>🔥 Pitta</span>
+                        <span id="pitta-score">0%</span>
+                    </div>
+
+                    <div class="score-bar">
+                        <div id="pitta-fill" class="pitta-fill"></div>
+                    </div>
+                </div>
+
+                <div class="score-item">
+                    <div class="score-label">
+                        <span>🌿 Kapha</span>
+                        <span id="kapha-score">0%</span>
+                    </div>
+
+                    <div class="score-bar">
+                        <div id="kapha-fill" class="kapha-fill"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- DOSHA DESCRIPTIONS -->
+
+        <section class="insight-grid">
+
+            <div class="insight-card">
+
+                <h3>🌬️ Vata Traits</h3>
+
+                <p>
+                    Creative, energetic, imaginative and adaptable.
+                    Vata personalities enjoy movement and new experiences.
+                </p>
+
+            </div>
+
+            <div class="insight-card">
+
+                <h3>🔥 Pitta Traits</h3>
+
+                <p>
+                    Focused, ambitious, determined and confident.
+                    Pitta individuals thrive on challenges and leadership.
+                </p>
+
+            </div>
+
+            <div class="insight-card">
+
+                <h3>🌿 Kapha Traits</h3>
+
+                <p>
+                    Calm, patient, supportive and dependable.
+                    Kapha personalities provide balance and stability.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ACTION BUTTONS -->
+
+        <section class="action-section">
+
             <a href="assessment.html" class="btn">
                 Retake Assessment
             </a>
-        </div>
+
+            <a href="index.html" class="btn secondary-btn">
+                Back to Home
+            </a>
+
+        </section>
 
     </main>
 
-    <script>
-        const result = JSON.parse(
-            localStorage.getItem("tridoshaResult")
-        );
+    <!-- FOOTER -->
 
-        if (!result) {
-            window.location.href = "assessment.html";
-        }
+    <footer>
 
-        const capitalize = text =>
-            text.charAt(0).toUpperCase() + text.slice(1);
+        <p>
+            © 2026 TriDosha Assessment | DecodeLabs Internship Project
+        </p>
 
-        document.getElementById("primary-dosha").textContent =
-            capitalize(result.primary);
+    </footer>
 
-        document.getElementById("secondary-dosha").textContent =
-            capitalize(result.secondary);
-
-        document.getElementById("tertiary-dosha").textContent =
-            capitalize(result.tertiary);
-
-        document.getElementById("vata-score").textContent =
-            result.scores.vata;
-
-        document.getElementById("pitta-score").textContent =
-            result.scores.pitta;
-
-        document.getElementById("kapha-score").textContent =
-            result.scores.kapha;
-
-        const descriptions = {
-            vata:
-                "You are primarily Vata. Creative, energetic, adaptable, and imaginative. You enjoy variety and learn quickly but may experience restlessness and irregular routines.",
-
-            pitta:
-                "You are primarily Pitta. Focused, intelligent, ambitious, and determined. You excel in leadership but may become impatient under pressure.",
-
-            kapha:
-                "You are primarily Kapha. Calm, reliable, patient, and nurturing. You provide stability and endurance but may resist change."
-        };
-
-        document.getElementById("dosha-description").textContent =
-            descriptions[result.primary];
-    </script>
+    <script src="js/app.js"></script>
 
 </body>
+
 </html>
