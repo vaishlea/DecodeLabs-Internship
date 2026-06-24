@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your TriDosha</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>Your TriDosha Profile</h1>
+        <p>Based on your assessment responses</p>
+    </header>
+
+    <main class="container">
+
+        <section class="result-card">
+
+            <h2>Primary Dosha</h2>
+            <p id="primary-dosha" class="primary-result"></p>
+
+            <h2>Secondary Dosha</h2>
+            <p id="secondary-dosha" class="secondary-result"></p>
+
+            <h2>Tertiary Dosha</h2>
+            <p id="tertiary-dosha" class="tertiary-result"></p>
+
+        </section>
+
+        <section class="result-card">
+
+            <h2>Score Breakdown</h2>
+
+            <div class="score-row">
+                <span>🌊 Vata</span>
+                <span id="vata-score"></span>
+            </div>
+
+            <div class="score-row">
+                <span>🔥 Pitta</span>
+                <span id="pitta-score"></span>
+            </div>
+
+            <div class="score-row">
+                <span>🌿 Kapha</span>
+                <span id="kapha-score"></span>
+            </div>
+
+        </section>
+
+        <section class="result-card">
+
+            <h2>Dosha Analysis</h2>
+
+            <p id="dosha-description">
+                Loading your profile...
+            </p>
+
+        </section>
+
+        <div class="center">
+            <a href="assessment.html" class="btn">
+                Retake Assessment
+            </a>
+        </div>
+
+    </main>
+
+    <script>
+        const result = JSON.parse(
+            localStorage.getItem("tridoshaResult")
+        );
+
+        if (!result) {
+            window.location.href = "assessment.html";
+        }
+
+        const capitalize = text =>
+            text.charAt(0).toUpperCase() + text.slice(1);
+
+        document.getElementById("primary-dosha").textContent =
+            capitalize(result.primary);
+
+        document.getElementById("secondary-dosha").textContent =
+            capitalize(result.secondary);
+
+        document.getElementById("tertiary-dosha").textContent =
+            capitalize(result.tertiary);
+
+        document.getElementById("vata-score").textContent =
+            result.scores.vata;
+
+        document.getElementById("pitta-score").textContent =
+            result.scores.pitta;
+
+        document.getElementById("kapha-score").textContent =
+            result.scores.kapha;
+
+        const descriptions = {
+            vata:
+                "You are primarily Vata. Creative, energetic, adaptable, and imaginative. You enjoy variety and learn quickly but may experience restlessness and irregular routines.",
+
+            pitta:
+                "You are primarily Pitta. Focused, intelligent, ambitious, and determined. You excel in leadership but may become impatient under pressure.",
+
+            kapha:
+                "You are primarily Kapha. Calm, reliable, patient, and nurturing. You provide stability and endurance but may resist change."
+        };
+
+        document.getElementById("dosha-description").textContent =
+            descriptions[result.primary];
+    </script>
+
+</body>
+</html>

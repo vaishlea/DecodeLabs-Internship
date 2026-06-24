@@ -1,0 +1,284 @@
+/* ===== RESET ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --vata:#3C91E6;
+    --kapha:#9FD356;
+    --dark:#342E37;
+    --light:#FAFFFD;
+    --pitta:#FA824C;
+}
+
+/* ===== BODY ===== */
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:70vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:2rem;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--vata),
+        var(--kapha)
+    );
+
+    color:white;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:1rem;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:2rem;
+}
+
+/* ===== PAGE HEADER ===== */
+
+.page-header{
+    text-align:center;
+    padding:3rem 1rem;
+}
+
+.page-header h1{
+    color:var(--dark);
+    margin-bottom:1rem;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    padding-bottom:3rem;
+}
+
+/* ===== BUTTON ===== */
+
+.btn,
+button{
+    background:var(--pitta);
+    color:white;
+
+    border:none;
+    border-radius:10px;
+
+    padding:12px 24px;
+
+    text-decoration:none;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn:hover,
+button:hover{
+    transform:translateY(-2px);
+    opacity:.9;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+/* ===== CARDS ===== */
+
+.card,
+.quiz-card,
+.result-card{
+    background:white;
+
+    padding:2rem;
+
+    margin-bottom:2rem;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+/* ===== DOSHA GRID ===== */
+
+.dosha-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:1.5rem;
+}
+
+.dosha-card{
+    background:white;
+
+    padding:1.5rem;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.08);
+}
+
+.dosha-card h2{
+    margin-bottom:1rem;
+}
+
+.vata{
+    border-top:6px solid var(--vata);
+}
+
+.pitta{
+    border-top:6px solid var(--pitta);
+}
+
+.kapha{
+    border-top:6px solid var(--kapha);
+}
+
+/* ===== QUIZ ===== */
+
+.quiz-card{
+    max-width:800px;
+    margin:auto;
+}
+
+#question-text{
+    margin-bottom:2rem;
+}
+
+/* ===== OPTIONS ===== */
+
+.options-container{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+}
+
+.option{
+    padding:1rem;
+
+    border:2px solid #ddd;
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.option:hover{
+    border-color:var(--vata);
+    background:#f5fbff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+/* ===== BUTTON GROUP ===== */
+
+.button-group{
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+
+    margin-top:2rem;
+}
+
+/* ===== PROGRESS ===== */
+
+.progress-container{
+    text-align:center;
+    margin-bottom:1rem;
+}
+
+#progress-text{
+    font-weight:600;
+}
+
+/* ===== RESULTS ===== */
+
+.primary-result{
+    color:var(--pitta);
+    font-size:2rem;
+    font-weight:bold;
+    margin-bottom:1rem;
+}
+
+.secondary-result{
+    color:var(--vata);
+    font-size:1.5rem;
+    font-weight:bold;
+    margin-bottom:1rem;
+}
+
+.tertiary-result{
+    color:var(--kapha);
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+.score-row{
+    display:flex;
+    justify-content:space-between;
+
+    padding:.8rem 0;
+
+    border-bottom:1px solid #eee;
+}
+
+#dosha-description{
+    line-height:1.8;
+}
+
+.center{
+    text-align:center;
+    margin-top:2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .button-group{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
+    }
+}
